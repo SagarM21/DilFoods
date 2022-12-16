@@ -13,7 +13,7 @@ const CartScreen = () => {
 					{cartItems.map((item) => {
 						return (
 							<div className='flex-container'>
-								<div className='text-left m-1'>
+								<div className='text-left m-1 w-100'>
 									<h1>
 										{item.name} [{item.subscription}]
 									</h1>
@@ -25,12 +25,20 @@ const CartScreen = () => {
 									<i className='fa fa-plus' aria-hidden='true'></i>
 									<b>{item.quantity}</b>
 									<i className='fa fa-minus' aria-hidden='true'></i>
-                                    <hr />
+									<hr />
 								</div>
 
-								<div></div>
+								<div className='w-100 m-1'>
+									<img
+										src={item.image}
+										alt={item.name}
+										style={{ height: "80px", width: "80px" }}
+									/>
+								</div>
 
-								<div></div>
+								<div className='w-100 m-1'>
+									<i className='fa fa-trash mt-4' aria-hidden='true'></i>
+								</div>
 							</div>
 						);
 					})}
