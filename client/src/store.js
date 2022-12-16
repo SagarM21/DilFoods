@@ -4,12 +4,13 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { getAllThalisReducer } from "./Reducers/thaliReducers";
 import { cartReducer } from "./Reducers/cartReducers";
-import { registerUserReducer } from "./Reducers/userReducers";
+import { loginUserReducer, registerUserReducer } from "./Reducers/userReducers";
 
 const finalReducer = combineReducers({
 	getAllThalisReducer: getAllThalisReducer,
 	cartReducer: cartReducer,
 	registerUserReducer: registerUserReducer,
+	loginUserReducer: loginUserReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")
