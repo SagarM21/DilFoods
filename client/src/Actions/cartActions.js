@@ -5,12 +5,20 @@ export const addToCart =
 			_id: thali._id,
 			image: thali.image,
 			subscription: subscription,
-			quantity: quantity,
+			quantity: Number(quantity),
 			prices: thali.prices,
 			price: thali.prices[0][subscription] * quantity,
 		};
 
-		dispatch({ type: "ADD_TO_CART", payload: cartItem });
+		if (cartItem.quantity > 10) {
+			alert("You can not add more than 10 quantities");
+		} else {
+			if (cartItem.quantity < 1) {
+				dispatch({ type: "DELETE_FROM_CART", payload: thali });
+			} else {
+				dispatch({ type: "ADD_TO_CART", payload: cartItem });
+			}
+		}
 
 		const cartItems = getState().cartReducer.cartItems;
 		localStorage.setItem("cartItems", JSON.stringify(cartItems));

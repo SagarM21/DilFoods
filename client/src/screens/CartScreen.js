@@ -26,6 +26,7 @@ const CartScreen = () => {
 									<i
 										className='fa fa-plus'
 										aria-hidden='true'
+										style={{ cursor: "pointer" }}
 										onClick={() => {
 											dispatch(
 												addToCart(item, item.quantity + 1, item.subscription)
@@ -36,6 +37,7 @@ const CartScreen = () => {
 									<i
 										className='fa fa-minus'
 										aria-hidden='true'
+										style={{ cursor: "pointer" }}
 										onClick={() => {
 											dispatch(
 												addToCart(item, item.quantity - 1, item.subscription)
@@ -57,6 +59,7 @@ const CartScreen = () => {
 									<i
 										className='fa fa-trash mt-4'
 										aria-hidden='true'
+										style={{ cursor: "pointer" }}
 										onClick={() => {
 											dispatch(deleteFromCart(item));
 										}}
