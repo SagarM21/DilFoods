@@ -10,10 +10,7 @@ const Thali = ({ thali }) => {
 	const handleShow = () => setShow(true);
 
 	return (
-		<div
-			style={{ margin: "70px" }}
-			className='shadow-lg p-3 mb-5 bg-white rounded'
-		>
+		<div className='shadow-lg p-3 mb-5 bg-white rounded m-3'>
 			<div onClick={handleShow}>
 				<h1>
 					<b>{thali.name}</b>{" "}

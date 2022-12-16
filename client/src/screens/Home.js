@@ -12,15 +12,15 @@ const Home = () => {
 	}, []);
 	return (
 		<div>
-			<div className='row'>
+			<div className='row justify-content-center'>
 				{loading ? (
 					<h1>Loading...</h1>
 				) : error ? (
 					<h1>Something went wrong</h1>
 				) : (
-					thalis.map((thali, i) => {
+					thalis.map((thali) => {
 						return (
-							<div className='col-md-6' key={i}>
+							<div className='col-md-5 m-3' key={thali._id}>
 								<div>
 									<Thali thali={thali} />
 								</div>
