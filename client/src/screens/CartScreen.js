@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../Actions/cartActions";
 
 const CartScreen = () => {
 	const dispatch = useDispatch();
@@ -22,9 +23,25 @@ const CartScreen = () => {
 										= {item.price}
 									</h1>
 									<h1 style={{ display: "inline" }}>Quantity: </h1>
-									<i className='fa fa-plus' aria-hidden='true'></i>
+									<i
+										className='fa fa-plus'
+										aria-hidden='true'
+										onClick={() => {
+											dispatch(
+												addToCart(item, item.quantity + 1, item.subscription)
+											);
+										}}
+									></i>
 									<b>{item.quantity}</b>
-									<i className='fa fa-minus' aria-hidden='true'></i>
+									<i
+										className='fa fa-minus'
+										aria-hidden='true'
+										onClick={() => {
+											dispatch(
+												addToCart(item, item.quantity - 1, item.subscription)
+											);
+										}}
+									></i>
 									<hr />
 								</div>
 
