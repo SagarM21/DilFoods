@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { userLogout } from "../Actions/userActions";
 
 const Navbar = () => {
 	const dispatch = useDispatch();
@@ -45,8 +46,11 @@ const Navbar = () => {
 									<a className='dropdown-item' href='/cart'>
 										Orders
 									</a>
-									<a className='dropdown-item' href='#'>
-										Logout
+									<a
+										className='dropdown-item'
+										onClick={() => dispatch(userLogout())}
+									>
+										<li>Logout</li>
 									</a>
 								</div>
 							</div>
