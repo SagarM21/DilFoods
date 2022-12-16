@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 const Navbar = () => {
 	const dispatch = useDispatch();
 	const cartState = useSelector((state) => state.cartReducer);
+	const userState = useSelector((state) => state.loginUserReducer);
+	const { currentUser } = userState;
 
 	return (
 		<div>
@@ -24,11 +26,38 @@ const Navbar = () => {
 				</button>
 				<div className='collapse navbar-collapse' id='navbarNav'>
 					<ul className='navbar-nav ml-auto'>
-						<li className='nav-item'>
-							<a className='nav-link' href='/login'>
-								Login
-							</a>
-						</li>
+						{currentUser ? (
+							<div className='dropdown mt-2'>
+								<a
+									className='dropdown-toggle'
+									id='dropdownMenuButton'
+									data-toggle='dropdown'
+									aria-haspopup='true'
+									aria-expanded='false'
+									style={{ cursor: "pointer", color: "black" }}
+								>
+									{currentUser.name}
+								</a>
+								<div
+									className='dropdown-menu'
+									aria-labelledby='dropdownMenuButton'
+								>
+									<a className='dropdown-item' href='/cart'>
+										Orders
+									</a>
+									<a className='dropdown-item' href='#'>
+										Logout
+									</a>
+								</div>
+							</div>
+						) : (
+							<li className='nav-item'>
+								<a className='nav-link' href='/login'>
+									Login
+								</a>
+							</li>
+						)}
+
 						<li className='nav-item'>
 							<a className='nav-link' href='/cart'>
 								Cart {cartState.cartItems.length}

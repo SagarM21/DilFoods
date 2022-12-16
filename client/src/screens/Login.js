@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../Actions/userActions";
 
@@ -6,6 +6,12 @@ const Login = () => {
 	const [password, setPassword] = useState("");
 	const [email, setEmail] = useState("");
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (localStorage.getItem("currentUser")) {
+			window.location.href = "/";
+		}
+	}, []);
 
 	const login = () => {
 		const user = { email, password };
