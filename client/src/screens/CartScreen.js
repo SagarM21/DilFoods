@@ -13,7 +13,7 @@ const CartScreen = () => {
 					{cartItems.map((item) => {
 						return (
 							<div className='flex-container'>
-								<div>
+								<div className='text-left m-1'>
 									<h1>
 										{item.name} [{item.subscription}]
 									</h1>
@@ -21,6 +21,11 @@ const CartScreen = () => {
 										Price: {item.quantity} * {item.prices[0][item.subscription]}{" "}
 										= {item.price}
 									</h1>
+									<h1 style={{ display: "inline" }}>Quantity: </h1>
+									<i className='fa fa-plus' aria-hidden='true'></i>
+									<b>{item.quantity}</b>
+									<i className='fa fa-minus' aria-hidden='true'></i>
+                                    <hr />
 								</div>
 
 								<div></div>
