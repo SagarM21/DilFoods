@@ -3,9 +3,11 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { getAllThalisReducer } from "./Reducers/thaliReducers";
+import { cartReducer } from "./Reducers/cartReducers";
 
 const finalReducer = combineReducers({
 	getAllThalisReducer: getAllThalisReducer,
+	cartReducer: cartReducer,
 });
 
 const initialState = {};

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Actions/cartActions";
 
 const Thali = ({ thali }) => {
 	const [quantity, setQuantity] = useState(1);
 	const [sub, setSub] = useState("Weekly");
 	const [show, setShow] = useState(false);
+	const dispatch = useDispatch();
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-
+	const addtocart = () => {
+		dispatch(addToCart(thali, quantity, sub));
+	};
 	return (
 		<div className='shadow-lg p-3 mb-5 bg-white rounded m-3'>
 			<div onClick={handleShow}>
@@ -65,7 +70,9 @@ const Thali = ({ thali }) => {
 					</h1>
 				</div>
 				<div className='m-1 w-100'>
-					<button className='btn'>ADD TO CART</button>
+					<button className='btn' onClick={addtocart}>
+						ADD TO CART
+					</button>
 				</div>
 			</div>
 
