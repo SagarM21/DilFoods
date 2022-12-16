@@ -1,17 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userRegister } from "../Actions/userActions";
 
 const Register = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [cPassword, setCPassword] = useState("");
+	const dispatch = useDispatch();
 
 	const register = () => {
 		if (password != cPassword) {
 			alert("Passwords do not match!");
 		} else {
 			const user = { name, email, password };
-			console.log(user);
+			// console.log(user);
+			dispatch(userRegister(user));
 		}
 	};
 	return (
