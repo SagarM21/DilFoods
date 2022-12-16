@@ -27,6 +27,6 @@ export const userLogin = (user) => async (dispatch) => {
 };
 
 export const userLogout = () => (dispatch) => {
-	localStorage.removeItem("currentUse");
+	localStorage.removeItem("currentUser");
 	window.location.href = "/login";
 };
