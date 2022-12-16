@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap";
+import "bootstrap/js/dist/dropdown";
 import bootstrap from "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import Home from "./screens/Home";
