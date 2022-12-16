@@ -15,3 +15,9 @@ export const addToCart =
 		const cartItems = getState().cartReducer.cartItems;
 		localStorage.setItem("cartItems", JSON.stringify(cartItems));
 	};
+
+export const deleteFromCart = (thali) => (dispatch, getState) => {
+	dispatch({ type: "DELETE_FROM_CART", payload: thali });
+	const cartItems = getState().cartReducer.cartItems;
+	localStorage.setItem("cartItems", JSON.stringify(cartItems));
+};
