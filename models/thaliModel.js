@@ -13,6 +13,6 @@ const thaliSchema = mongoose.Schema(
 	}
 );
 
-const thaliModel = mongoose.model("thali", thaliSchema);
+const thaliModel = mongoose.model("thalis", thaliSchema);
 
 module.exports = thaliModel;

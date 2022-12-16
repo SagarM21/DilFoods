@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllThalis } from "../Actions/thaliActions";
 import Thali from "../components/Thali";
 import thalis from "../data";
 
 const Home = () => {
+	const dispatch = useDispatch()
+	useEffect(() => {
+		dispatch(getAllThalis())
+	}, []);
 	return (
 		<div>
 			<div className='row'>

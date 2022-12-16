@@ -1,6 +1,5 @@
 const express = require("express");
 const db = require("./db");
-const thali = require("./models/thaliModel");
 const app = express();
 
 app.use(express.json());

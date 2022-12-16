@@ -1,10 +1,10 @@
 import axios from "axios";
 
-export const getAllThalis = () => (dispatch) => {
+export const getAllThalis = () => async (dispatch) => {
 	dispatch({ type: "GET_THALI_REQUEST" });
 
 	try {
-		const response = axios.get("/api/thalis/getThalis");
+		const response = await axios.get("/api/thalis/getAllThalis");
 		console.log(response);
 		dispatch({ type: "GET_THALI_SUCCESS", payload: response.data });
 	} catch (error) {
