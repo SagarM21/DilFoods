@@ -5,12 +5,14 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { getAllThalisReducer } from "./Reducers/thaliReducers";
 import { cartReducer } from "./Reducers/cartReducers";
 import { loginUserReducer, registerUserReducer } from "./Reducers/userReducers";
+import { placeOrderReducer } from "./Reducers/orderReducers";
 
 const finalReducer = combineReducers({
 	getAllThalisReducer: getAllThalisReducer,
 	cartReducer: cartReducer,
 	registerUserReducer: registerUserReducer,
 	loginUserReducer: loginUserReducer,
+	placeOrderReducer: placeOrderReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")
