@@ -15,3 +15,5 @@
 - AddToCart as per subscription and quantity
 - Payment through stripe - see the video for test credentials to test it.
 - Handling errors
+
+# Demo
