@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const stripe = require("stripe")(process.env.SECRET_KEY);
 const { v4: uuidv4 } = require("uuid");
+const Order = require("../models/orderModel");
 
 router.post("/placeorder", async (req, res) => {
 	const { token, subtotal, currentUser, cartItems } = req.body;
@@ -28,9 +29,30 @@ router.post("/placeorder", async (req, res) => {
 		const paymentConfirm = await stripe.paymentIntents.confirm(payment.id, {
 			payment_method: "pm_card_visa",
 		});
-		res.status(200).send(paymentConfirm);
+		// res.status(200).send(paymentConfirm);
+		if (paymentConfirm) {
+			const newOrder = new Order({
+				name: currentUser.name,
+				email: currentUser.email,
+				userid: currentUser.userid,
+				orderItems: cartItems,
+				orderAmount: subtotal,
+				shippingAddress: {
+					street: token.card.address_line1,
+					city: token.card.address_city,
+					country: token.card.address_country,
+					pincode: token.card.address_zip,
+				},
+				transactionId: payment.id,
+			});
+
+			newOrder.save();
+			res.send("Order placed successfully!");
+		} else {
+			res.send("Payment failed");
+		}
 	} catch (error) {
-		return res.status(400).json({ message: error });
+		return res.status(400).json({ message: "some error occurred" + error });
 	}
 });
 
