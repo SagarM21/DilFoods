@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../Actions/userActions";
 import Error from "../components/Error";
@@ -23,6 +23,7 @@ const Register = () => {
 			dispatch(userRegister(user));
 		}
 	};
+
 	return (
 		<div>
 			<div className='row justify-content-center mt-5'>
