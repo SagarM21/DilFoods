@@ -34,7 +34,7 @@ router.post("/placeorder", async (req, res) => {
 			const newOrder = new Order({
 				name: currentUser.name,
 				email: currentUser.email,
-				userid: currentUser.userid,
+				userid: currentUser._id,
 				orderItems: cartItems,
 				orderAmount: subtotal,
 				shippingAddress: {
@@ -51,6 +51,16 @@ router.post("/placeorder", async (req, res) => {
 		} else {
 			res.send("Payment failed");
 		}
+	} catch (error) {
+		return res.status(400).json({ message: "some error occurred" + error });
+	}
+});
+
+router.get("/getuserorders", async (req, res) => {
+	const { userid } = req.body;
+	try {
+		const orders = await Order.find({ userid: userid });
+		res.send(orders);
 	} catch (error) {
 		return res.status(400).json({ message: "some error occurred" + error });
 	}

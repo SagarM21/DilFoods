@@ -9,6 +9,7 @@ import { BrowserRouter, Switch, Link, Route } from "react-router-dom";
 import CartScreen from "./screens/CartScreen";
 import Register from "./screens/Register";
 import Login from "./screens/Login";
+import orderScreen from "./screens/orderScreen";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				<Route path='/cart' exact component={CartScreen} />
 				<Route path='/register' exact component={Register} />
 				<Route path='/login' exact component={Login} />
+				<Route path='/orders' exact component={orderScreen} />
 			</BrowserRouter>
 		</div>
 	);
