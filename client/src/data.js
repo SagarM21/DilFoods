@@ -1,7 +1,7 @@
 const thalis = [
 	{
 		name: "Veg Thali",
-		subscription: ["Weekly", "Monthly", "Yearly"],
+		subscription: ["Weekly", "Monthly", "Quarterly"],
 		prices: [
 			{
 				Weekly: 1400,
@@ -16,7 +16,7 @@ const thalis = [
 	},
 	{
 		name: "Non-Veg Thali",
-		subscription: ["Weekly", "Monthly", "Yearly"],
+		subscription: ["Weekly", "Monthly", "Quarterly"],
 		prices: [
 			{
 				Weekly: 1400,
