@@ -3,6 +3,7 @@ const router = express.Router();
 const stripe = require("stripe")(process.env.SECRET_KEY);
 const { v4: uuidv4 } = require("uuid");
 const Order = require("../models/orderModel");
+const { protect } = require("../middleware/authMiddleware");
 
 router.post("/placeorder", async (req, res) => {
 	const { token, subtotal, currentUser, cartItems } = req.body;
