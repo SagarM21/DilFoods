@@ -1,7 +1,7 @@
 # Run on your local machine
 
 - Run `npm i` in the terminal to install the dependencies.
-- cd main dir - `npm start`
+- cd main dir - `nodemon server.js`
 - cd client - `npm start`
 
 # Features
