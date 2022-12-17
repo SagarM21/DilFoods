@@ -19,8 +19,7 @@ const Register = () => {
 			alert("Passwords do not match!");
 		} else {
 			const user = { name, email, password };
-			// console.log(user);
-			dispatch(userRegister(user));
+			dispatch(userRegister(name, email, password));
 		}
 	};
 

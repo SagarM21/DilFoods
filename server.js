@@ -1,7 +1,9 @@
 const express = require("express");
 const db = require("./config/db");
+const dotenv = require("dotenv");
 const app = express();
 
+dotenv.config();
 app.use(express.json());
 
 const thaliRoute = require("./routes/thalisRoute");

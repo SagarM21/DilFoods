@@ -20,11 +20,11 @@ function App() {
 			<Navbar />
 			<BrowserRouter>
 				<Route path='/' exact component={Home} />
-				{currentUser ? (
-					<Route path='/cart' exact component={CartScreen} />
+				<Route path='/cart' exact component={CartScreen} />
+				{/* {currentUser ? (
 				) : (
 					<Redirect to='/login' />
-				)}
+				)} */}
 
 				<Route path='/register' exact component={Register} />
 				<Route path='/login' exact component={Login} />

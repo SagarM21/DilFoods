@@ -18,9 +18,7 @@ const Login = () => {
 	}, []);
 
 	const login = () => {
-		const user = { email, password };
-		console.log(user);
-		dispatch(userLogin(user));
+		dispatch(userLogin(email, password));
 	};
 	return (
 		<div>
