@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
+import { deleteFromCart, emptyCart } from "../Actions/cartActions";
 import { placeOrder } from "../Actions/orderActions";
 import Error from "./Error";
 import Loading from "./Loading";
@@ -13,6 +14,7 @@ export default function Checkout({ subtotal }) {
 	function tokenHandler(token) {
 		console.log(token);
 		dispatch(placeOrder(token, subtotal));
+		dispatch(emptyCart());
 	}
 	return (
 		<div>
