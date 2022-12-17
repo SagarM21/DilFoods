@@ -32,7 +32,7 @@ const Navbar = () => {
 								<a
 									className='dropdown-toggle'
 									id='dropdownMenuButton'
-									type="button"
+									type='button'
 									data-toggle='dropdown'
 									aria-haspopup='true'
 									aria-expanded='false'
@@ -68,7 +68,6 @@ const Navbar = () => {
 								Cart {cartState.cartItems.length}
 							</a>
 						</li>
-						
 					</ul>
 				</div>
 			</nav>

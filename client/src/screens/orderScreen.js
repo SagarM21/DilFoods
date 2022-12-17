@@ -24,6 +24,7 @@ export default function OrderScreen() {
 					orders.map((order) => {
 						return (
 							<div
+								key={order._id}
 								className='col-md-8 m-2 p-1 rounded shadow-md'
 								style={{ backgroundColor: "#e09177", color: "white" }}
 							>
@@ -32,7 +33,7 @@ export default function OrderScreen() {
 										<h2 style={{ fontSize: "25px" }}>Items</h2>
 										{order.orderItems.map((item) => {
 											return (
-												<div>
+												<div key={item._id}>
 													<hr />
 													<p>
 														{item.name} [{item.subscription}]*{item.quantity} ={" "}

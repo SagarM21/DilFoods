@@ -1,11 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { addToCart, deleteFromCart } from "../Actions/cartActions";
 import Checkout from "../components/Checkout";
 
 const CartScreen = () => {
 	const dispatch = useDispatch();
+	const history = useHistory();
 	const cartState = useSelector((state) => state.cartReducer);
+	const { currentUser } = useSelector((state) => state.loginUserReducer);
 	const cartItems = cartState.cartItems;
 	const subTotal = cartItems.reduce((x, item) => x + item.price, 0);
 	return (
@@ -15,7 +18,7 @@ const CartScreen = () => {
 					<h2 style={{ fontSize: "40px" }}>My Cart</h2>
 					{cartItems.map((item) => {
 						return (
-							<div className='flex-container'>
+							<div className='flex-container' key={item._id}>
 								<div className='text-left m-1 w-100'>
 									<h1>
 										{item.name} [{item.subscription}]
@@ -73,7 +76,14 @@ const CartScreen = () => {
 				</div>
 				<div className='col-md-4 text-right'>
 					<h2 style={{ fontSize: "45px" }}>SubTotal: {subTotal} /-</h2>
-					<Checkout subtotal={subTotal} />
+					{currentUser ? (
+						<Checkout subtotal={subTotal} />
+					) : (
+						<button className='btn' onClick={() => history.push("/login")}>
+							{" "}
+							Login
+						</button>
+					)}
 				</div>
 			</div>
 		</div>
