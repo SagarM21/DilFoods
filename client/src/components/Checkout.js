@@ -3,16 +3,16 @@ import { useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { placeOrder } from "../Actions/orderActions";
 
-export default function Checkout({ Subtotal }) {
-	const dispatch = useDispatch;
+export default function Checkout({ subtotal }) {
+	const dispatch = useDispatch();
 	function tokenHandler(token) {
 		console.log(token);
-		dispatch(placeOrder(token, Subtotal));
+		dispatch(placeOrder(token, subtotal));
 	}
 	return (
 		<div>
 			<StripeCheckout
-				amount={Subtotal * 100}
+				amount={subtotal * 100}
 				shippingAddress
 				token={tokenHandler}
 				currency='INR'

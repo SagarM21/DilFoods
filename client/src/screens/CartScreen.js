@@ -73,7 +73,7 @@ const CartScreen = () => {
 				</div>
 				<div className='col-md-4 text-right'>
 					<h2 style={{ fontSize: "45px" }}>SubTotal: {subTotal} /-</h2>
-					<Checkout Subtotal={subTotal} />
+					<Checkout subtotal={subTotal} />
 				</div>
 			</div>
 		</div>
