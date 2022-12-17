@@ -8,13 +8,14 @@ import Error from "./Error";
 import Loading from "./Loading";
 import Success from "./Success";
 
-export default function Checkout({ subtotal }) {
+export default function Checkout({ subtotal, val }) {
 	const orderState = useSelector((state) => state.placeOrderReducer);
 	const { loading, error, success } = orderState;
 	const dispatch = useDispatch();
+	console.log(parseInt(val));
 	function tokenHandler(token) {
 		console.log(token);
-		dispatch(placeOrder(token, subtotal));
+		dispatch(placeOrder(token, subtotal, parseInt(val)));
 		dispatch(emptyCart());
 	}
 	return (

@@ -2,18 +2,21 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Actions/cartActions";
+import TimePicker from "react-time-picker";
 
 const Thali = ({ thali }) => {
 	const [quantity, setQuantity] = useState(1);
 	const [sub, setSub] = useState("Weekly");
 	const [show, setShow] = useState(false);
+	const [value, onChange] = useState("10:00");
 	const dispatch = useDispatch();
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 	const addtocart = () => {
-		dispatch(addToCart(thali, quantity, sub));
+		dispatch(addToCart(thali, quantity, sub, value));
 	};
+	console.log(value);
 	return (
 		<div className='shadow-lg p-3 mb-5 bg-white rounded m-3'>
 			<div onClick={handleShow}>
@@ -74,6 +77,9 @@ const Thali = ({ thali }) => {
 						ADD TO CART
 					</button>
 				</div>
+			</div>
+			<div className='flex-container'>
+				<TimePicker onChange={onChange} value={value} />
 			</div>
 
 			{/* MODAL */}

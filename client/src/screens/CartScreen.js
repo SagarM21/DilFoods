@@ -11,6 +11,8 @@ const CartScreen = () => {
 	const { currentUser } = useSelector((state) => state.loginUserReducer);
 	const cartItems = cartState.cartItems;
 	const subTotal = cartItems.reduce((x, item) => x + item.price, 0);
+	const val = cartItems.map((item) => item.value);
+
 	return (
 		<div>
 			<div className='row justify-content-center'>
@@ -27,6 +29,7 @@ const CartScreen = () => {
 										Price: {item.quantity} * {item.prices[0][item.subscription]}{" "}
 										= {item.price}
 									</h1>
+									<h1>Delivery Time: {item.value ? item.value : "10:00"}</h1>
 									<h1 style={{ display: "inline" }}>Quantity: </h1>
 									<i
 										className='fa fa-plus'
@@ -34,7 +37,12 @@ const CartScreen = () => {
 										style={{ cursor: "pointer" }}
 										onClick={() => {
 											dispatch(
-												addToCart(item, item.quantity + 1, item.subscription)
+												addToCart(
+													item,
+													item.quantity + 1,
+													item.subscription,
+													item.value
+												)
 											);
 										}}
 									></i>
@@ -45,7 +53,12 @@ const CartScreen = () => {
 										style={{ cursor: "pointer" }}
 										onClick={() => {
 											dispatch(
-												addToCart(item, item.quantity - 1, item.subscription)
+												addToCart(
+													item,
+													item.quantity - 1,
+													item.subscription,
+													item.value
+												)
 											);
 										}}
 									></i>
@@ -77,7 +90,7 @@ const CartScreen = () => {
 				<div className='col-md-4 text-right'>
 					<h2 style={{ fontSize: "45px" }}>SubTotal: {subTotal} /-</h2>
 					{currentUser ? (
-						<Checkout subtotal={subTotal} />
+						<Checkout subtotal={subTotal} val={val} />
 					) : (
 						<button className='btn' onClick={() => history.push("/login")}>
 							{" "}

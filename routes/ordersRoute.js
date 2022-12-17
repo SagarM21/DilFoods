@@ -6,7 +6,7 @@ const Order = require("../models/orderModel");
 const { protect } = require("../middleware/authMiddleware");
 
 router.post("/placeorder", async (req, res) => {
-	const { token, subtotal, currentUser, cartItems } = req.body;
+	const { token, subtotal, currentUser, cartItems, val } = req.body;
 	var payment;
 	try {
 		const customer = await stripe.customers.create({
@@ -45,6 +45,7 @@ router.post("/placeorder", async (req, res) => {
 					pincode: token.card.address_zip,
 				},
 				transactionId: payment.id,
+				time: val,
 			});
 
 			newOrder.save();

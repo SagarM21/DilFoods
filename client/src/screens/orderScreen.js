@@ -58,6 +58,7 @@ export default function OrderScreen() {
 										<p>Date: {order.createdAt.substr(0, 10)}</p>
 										<p>Transaction ID: {order.transactionId}</p>
 										<p>Order ID: {order._id}</p>
+										<p>Delivery Time: {order.time + 1}</p>
 									</div>
 								</div>
 							</div>

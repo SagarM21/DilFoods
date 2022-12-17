@@ -1,5 +1,5 @@
 export const addToCart =
-	(thali, quantity, subscription) => (dispatch, getState) => {
+	(thali, quantity, subscription, value) => (dispatch, getState) => {
 		var cartItem = {
 			name: thali.name,
 			_id: thali._id,
@@ -8,6 +8,7 @@ export const addToCart =
 			quantity: Number(quantity),
 			prices: thali.prices,
 			price: thali.prices[0][subscription] * quantity,
+			value,
 		};
 
 		if (cartItem.quantity > 10) {

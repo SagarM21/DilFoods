@@ -9,6 +9,7 @@ const orderSchema = mongoose.Schema(
 		orderAmount: { type: Number, require },
 		isDelivered: { type: Boolean, require, default: false },
 		transactionId: { type: String, require },
+		time: { type: Number, default: 10 },
 	},
 	{
 		timestamps: true,
