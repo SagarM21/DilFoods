@@ -27,7 +27,7 @@ const Home = () => {
 		<div>
 			<div className='row justify-content-center'>
 				<div style={{ fontSize: "45px" }}>
-					{user.isAdmin && "Welcome Admin"}
+					{user?.isAdmin && "Welcome Admin"}
 				</div>
 				{loading ? (
 					<Loading />
