@@ -8,6 +8,7 @@
 
 - JWT Authentication(Login/SignUp/Logout)
 - Passwords are encrypted
+- Added admin panel to access all the orders and review its status.
 - Order history saved in db, visible in orders section of ui
 - Used react-bootstrap for frontend ui
 - Used redux for state management
@@ -16,5 +17,5 @@
 - Handling errors
 
 # Demo
-https://user-images.githubusercontent.com/72984307/208253089-fc122185-c72e-47ac-a314-f319fd4f11cc.mp4
+https://user-images.githubusercontent.com/72984307/208469858-e9fea94d-be47-4756-bf94-16d7b7e9f8a2.mp4
 
