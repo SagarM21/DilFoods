@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../Actions/userActions";
+import TotalOrders from "../screens/TotalOrders";
 
 const Navbar = () => {
 	const dispatch = useDispatch();
@@ -44,9 +45,15 @@ const Navbar = () => {
 									className='dropdown-menu'
 									aria-labelledby='dropdownMenuButton'
 								>
-									<a className='dropdown-item' href='/orders'>
-										Orders
-									</a>
+									{currentUser.isAdmin ? (
+										<a className='dropdown-item' href='/allOrders'>
+											All orders
+										</a>
+									) : (
+										<a className='dropdown-item' href='/orders'>
+											Orders
+										</a>
+									)}
 									<a
 										className='dropdown-item'
 										onClick={() => dispatch(userLogout())}

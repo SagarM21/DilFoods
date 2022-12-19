@@ -1,9 +1,12 @@
 const express = require("express");
-const db = require("./config/db");
+const connectDB = require("./config/db");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const app = express();
 
+app.use(cors());
 dotenv.config();
+connectDB();
 app.use(express.json());
 
 const thaliRoute = require("./routes/thalisRoute");

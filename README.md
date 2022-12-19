@@ -8,7 +8,6 @@
 
 - JWT Authentication(Login/SignUp/Logout)
 - Passwords are encrypted
-- Thali Modal
 - Order history saved in db, visible in orders section of ui
 - Used react-bootstrap for frontend ui
 - Used redux for state management

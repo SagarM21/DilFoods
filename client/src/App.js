@@ -11,9 +11,11 @@ import Register from "./screens/Register";
 import Login from "./screens/Login";
 import OrderScreen from "./screens/OrderScreen";
 import { useSelector } from "react-redux";
+import TotalOrders from "./screens/TotalOrders";
 
 function App() {
 	const { currentUser } = useSelector((state) => state.loginUserReducer);
+	const user = JSON.parse(localStorage.getItem("currentUser"));
 
 	return (
 		<div className='App'>
@@ -29,6 +31,9 @@ function App() {
 				<Route path='/register' exact component={Register} />
 				<Route path='/login' exact component={Login} />
 				{currentUser && <Route path='/orders' exact component={OrderScreen} />}
+				{user?.isAdmin && (
+					<Route path='/allOrders' exact component={TotalOrders} />
+				)}
 			</BrowserRouter>
 		</div>
 	);

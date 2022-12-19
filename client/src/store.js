@@ -6,6 +6,7 @@ import { getAllThalisReducer } from "./Reducers/thaliReducers";
 import { cartReducer } from "./Reducers/cartReducers";
 import { loginUserReducer, registerUserReducer } from "./Reducers/userReducers";
 import {
+	getAllOrdersReducer,
 	getUserOrdersReducer,
 	placeOrderReducer,
 } from "./Reducers/orderReducers";
@@ -17,6 +18,7 @@ const finalReducer = combineReducers({
 	loginUserReducer: loginUserReducer,
 	placeOrderReducer: placeOrderReducer,
 	getUserOrdersReducer: getUserOrdersReducer,
+	getAllOrdersReducer: getAllOrdersReducer,
 });
 
 const cartItems = localStorage.getItem("cartItems")

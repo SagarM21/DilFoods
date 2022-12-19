@@ -1,19 +1,19 @@
+
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config();
+const colors = require("colors");
 
-mongoose.connect(process.env.DATABASE_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-});
+const connectDB = async () => {
+	try {
+		const conn = await mongoose.connect(process.env.DATABASE_URL, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
 
-var db = mongoose.connection;
-db.on("connected", () => {
-	console.log("Database connected successfully");
-});
+		console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline);
+	} catch (error) {
+		console.log(`Error: ${error.message}`.red.bold);
+		process.exit();
+	}
+};
 
-db.on("error", () => {
-	console.log("Database connection failed!");
-});
-
-module.exports = mongoose;
+module.exports = connectDB;

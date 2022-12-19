@@ -5,10 +5,13 @@ import Error from "../components/Error";
 import Loading from "../components/Loading";
 import Thali from "../components/Thali";
 import { Navigate, useHistory, useNavigate } from "react-router-dom";
+import TotalOrders from "./TotalOrders";
 
 const Home = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
+	const user = JSON.parse(localStorage.getItem("currentUser"));
+
 	const thaliState = useSelector((state) => state.getAllThalisReducer);
 	const { thalis, error, loading } = thaliState;
 	useEffect(() => {
@@ -23,6 +26,9 @@ const Home = () => {
 	return (
 		<div>
 			<div className='row justify-content-center'>
+				<div style={{ fontSize: "45px" }}>
+					{user.isAdmin && "Welcome Admin"}
+				</div>
 				{loading ? (
 					<Loading />
 				) : error ? (
