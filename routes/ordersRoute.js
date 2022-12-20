@@ -68,7 +68,7 @@ router.post("/getuserorders", async (req, res) => {
 	}
 });
 
-router.post("/getAllOrders", async (req, res) => {
+router.get("/getAllOrders", protect, async (req, res) => {
 	const orders = await Order.find({});
 	res.json(orders);
 });

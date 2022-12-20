@@ -42,10 +42,18 @@ export const getAllOrders = () => async (dispatch, getState) => {
 	dispatch({ type: "GET_ALL_ORDERS_REQUEST" });
 
 	try {
-		const response = await axios.post("/api/orders/getAllOrders");
+		const currentUser = getState().loginUserReducer.currentUser;
 
-		console.log(response);
-		dispatch({ type: "GET_ALL_ORDERS_SUCCESS", payload: response.data });
+		const config = {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${currentUser.token}`,
+			},
+		};
+		const { data } = await axios.get("/api/orders/getAllOrders", config);
+
+		console.log(data);
+		dispatch({ type: "GET_ALL_ORDERS_SUCCESS", payload: data });
 	} catch (error) {
 		dispatch({ type: "GET_ALL_ORDERS_FAILED", payload: error });
 	}

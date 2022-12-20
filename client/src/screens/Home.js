@@ -21,6 +21,8 @@ const Home = () => {
 		const user = JSON.parse(localStorage.getItem("currentUser"));
 		if (user) {
 			history.push("/");
+		} else {
+			history.push("/login");
 		}
 	}, []);
 	return (
