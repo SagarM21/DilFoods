@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userRegister } from "../Actions/userActions";
+import { useHistory } from "react-router-dom";
+import { userLogin, userRegister } from "../Actions/userActions";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
 import Success from "../components/Success";
@@ -9,6 +10,7 @@ const Register = () => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const history = useHistory();
 	const [cPassword, setCPassword] = useState("");
 	const registerState = useSelector((state) => state.registerUserReducer);
 	const { error, loading, success } = registerState;
@@ -22,6 +24,13 @@ const Register = () => {
 			dispatch(userRegister(name, email, password));
 		}
 	};
+
+	useEffect(() => {
+		const user = JSON.parse(localStorage.getItem("currentUser"));
+		if (user?.token) {
+			history.push("/");
+		}
+	}, []);
 
 	return (
 		<div>
