@@ -12,6 +12,7 @@ import Login from "./screens/Login";
 import OrderScreen from "./screens/OrderScreen";
 import { useSelector } from "react-redux";
 import TotalOrders from "./screens/TotalOrders";
+import Footer from "./screens/Footer";
 
 function App() {
 	const { currentUser } = useSelector((state) => state.loginUserReducer);
@@ -23,11 +24,6 @@ function App() {
 			<BrowserRouter>
 				<Route path='/' exact component={Home} />
 				<Route path='/cart' exact component={CartScreen} />
-				{/* {currentUser ? (
-				) : (
-					<Redirect to='/login' />
-				)} */}
-
 				<Route path='/register' exact component={Register} />
 				<Route path='/login' exact component={Login} />
 				{currentUser && <Route path='/orders' exact component={OrderScreen} />}
@@ -35,6 +31,7 @@ function App() {
 					<Route path='/allOrders' exact component={TotalOrders} />
 				)}
 			</BrowserRouter>
+			<Footer />
 		</div>
 	);
 }
