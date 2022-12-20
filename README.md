@@ -8,6 +8,7 @@
 
 - JWT Authentication(Login/SignUp/Logout)
 - Passwords are encrypted
+- Routes are protected through JWT tokens.
 - Added admin panel to access all the orders and review its status.
 - Order history saved in db, visible in orders section of ui
 - Used react-bootstrap for frontend ui
@@ -17,5 +18,6 @@
 - Handling errors
 
 # Demo
-https://user-images.githubusercontent.com/72984307/208469858-e9fea94d-be47-4756-bf94-16d7b7e9f8a2.mp4
+https://user-images.githubusercontent.com/72984307/208580752-13a9f172-1b17-4fd7-b0d5-421b416115c8.mp4
+
 
